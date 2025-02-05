@@ -12,6 +12,7 @@ spec:
     spec:
       containers:
       - image: aluna1997/usuario-service:1.0
+        imagePullPolicy: Always
         env:
         - name: SPRING_DATA_MONGODB_URI
           value: "mongodb://mongodb:27017/usuarios"
@@ -22,3 +23,10 @@ spec:
           requests:
             memory: "256Mi"
             cpu: "250m"
+        readinessProbe:
+          httpGet:
+            path: /api/usuarios/health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5

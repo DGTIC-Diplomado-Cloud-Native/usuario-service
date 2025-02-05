@@ -2,6 +2,7 @@ package com.example.usuario_service.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +38,11 @@ public interface UsuarioApi {
 	@ResponseStatus(HttpStatus.CREATED)
 	Usuario registrarUsuario(
 		@NotNull @Valid @RequestBody RegistroUsuarioRequest request);
+
+	@GetMapping("/health")
+	@ResponseStatus(HttpStatus.OK)
+	default String health() {
+		return "Service is healthy";
+	}
 
 }
