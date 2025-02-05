@@ -9,7 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Getter;
 
+@Getter
 @Data
 @NoArgsConstructor
 @Document(collection="usuarios")
