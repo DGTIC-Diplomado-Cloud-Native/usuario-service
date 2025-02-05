@@ -7,5 +7,5 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Mi
-  storageClassName: standard
+      storage: 1Gi
+  storageClassName: iscsi-csi
